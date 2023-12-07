@@ -37,13 +37,14 @@ class Family_Members_Controller extends Controller
             'Relationship' => "required|max:255",
             'Academic_Achievement' => "required|max:255",
         ]);
-
         $data = $request->all();
         $number = $request->input('number');
         $leader = FamilyLeader::where('phone_number', '=',$number)->first();
+        foreach($request->input as $key => $value){
         $leader_id = $leader->id;
-        $data['Leader_id'] = $leader_id;
-        FamilyMembers::create($data);
+        $value['Leader_id'] = $leader_id;
+        FamilyMembers::create($value);
+        }
         return view('thanks');
     }
 

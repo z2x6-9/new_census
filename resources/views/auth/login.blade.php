@@ -6,14 +6,14 @@
         @csrf
         <h1 class="h3 my-4 fw-normal">الرجاء تسجيل الدخول</h1>
         <!-- Email Address -->
-        <div>
+        <div class="form-floating">
             <x-input-label for="username" :value="__('أسم ألمستخدم')" />
             <x-text-input id="username" class="form-control" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('username')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div class="form-floating">
             <x-input-label for="password" :value="__('كلمة المرور')" />
 
             <x-text-input id="password" class="form-control"
@@ -25,7 +25,7 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="checkbox mb-3">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
                 <span class="ms-2 text-sm text-gray-600">{{ __('تذكرني') }}</span>
@@ -39,7 +39,7 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="w-100 btn btn-lg btn-primary">
                 {{ __('تسجيل الدخول') }}
             </x-primary-button>
         </div>
