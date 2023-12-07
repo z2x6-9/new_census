@@ -55,7 +55,7 @@ class Family_Leader_Controller extends Controller
         if($submit1){
             $number = $request->input('Phone_Number');
             FamilyLeader::create($data);
-            return view('other_members',compact('number'));
+            return redirect('/member',compact('number'));
         }
         $submit2 = $request->input('submit2');
         if($submit2){

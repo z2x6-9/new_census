@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function(){return view('index');});
     Route::get('/family_head', [App\Http\Controllers\Family_Leader_Controller::class, 'index'])->name('index');
     Route::post('/store', [App\Http\Controllers\Family_Leader_Controller::class, 'store'])->name('famile.store');
+    Route::get('/member', [App\Http\Controllers\Family_Members_Controller::class, 'index'])->name('members');
     Route::post('/members', [App\Http\Controllers\Family_Members_Controller::class, 'store'])->name('members.store');
     Route::get('/end', function () {return view('thanks');})->name('thanks');
 
