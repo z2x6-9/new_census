@@ -25,12 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-    Route::get('/', function(){return view('conditions');});
-    Route::get('/type', function(){return view('RegistrationType');})->name('type');
-    Route::get('/famile', [App\Http\Controllers\Family_Leader_Controller::class, 'index'])->name('index');
+    Route::get('/', function(){return view('index');});
+    Route::get('/family_head', [App\Http\Controllers\Family_Leader_Controller::class, 'index'])->name('index');
     Route::post('/store', [App\Http\Controllers\Family_Leader_Controller::class, 'store'])->name('famile.store');
-    Route::get('/members/form', [App\Http\Controllers\Family_Leader_Controller::class, 'type'])->name('members');
-    Route::post('/members/store', [App\Http\Controllers\Family_Members_Controller::class, 'store'])->name('members.store');
-    Route::get('/end', function () {return view('ok');})->name('ok');
+    Route::post('/members', [App\Http\Controllers\Family_Members_Controller::class, 'store'])->name('members.store');
+    Route::get('/end', function () {return view('thanks');})->name('thanks');
 
 require __DIR__.'/auth.php';

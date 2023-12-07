@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    {{ $total }}
     <div class="container mt-5">
         <div class="d-flex justify-content-end mb-3">
             <a class="btn btn-secondary" href="login.html">تسجيل خروج</a>
@@ -20,13 +21,13 @@
                 <h1 class="card-title mb-4">إحصائيات</h1>
                 <div class="row">
                     <div class="col-md-4">
-                        <h4>اجمالي النسمات: <strong>{{ $total; }}</strong></h4>
+                        <h4>اجمالي النسمات: <strong>{{ $total }}</strong></h4>
                     </div>
                     <div class="col-md-4">
-                        <h4>اجمالي الذكور: <strong>{{ $male; }}</strong></h4>
+                        <h4>اجمالي الذكور: <strong>{{ $male }}</strong></h4>
                     </div>
                     <div class="col-md-4">
-                        <h4>اجمالي الأناث: <strong>{{ $feminine; }}</strong></h4>
+                        <h4>اجمالي الأناث: <strong>{{ $female }}</strong></h4>
                     </div>
                 </div>
             </div>
@@ -36,7 +37,7 @@
         <div class="card mt-4">
             <div class="card-body bg-warning">
                 <h2 class="card-title mb-4">تحذير</h2>
-                <h5><strong>انتباه: </strong>هناك {{ $SimilarityNumber - 1}} سجلات مشبوهة</h5>
+                <h5><strong>انتباه: </strong>هناك {{ $SimilarityNumber}} سجلات مشبوهة</h5>
             </div>
         </div>
         @endif

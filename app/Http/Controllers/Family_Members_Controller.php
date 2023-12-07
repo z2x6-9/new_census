@@ -14,7 +14,7 @@ class Family_Members_Controller extends Controller
     public function index()
     {
         $famile = FamilyLeader::all();
-        return view('members', compact('famile'));
+        return view('other_members', compact('famile'));
     }
 
     /**
@@ -30,7 +30,6 @@ class Family_Members_Controller extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'Name' => "required|max:255",
             'Gender' => "required|max:4",
@@ -45,7 +44,7 @@ class Family_Members_Controller extends Controller
         $leader_id = $leader->id;
         $data['Leader_id'] = $leader_id;
         FamilyMembers::create($data);
-        return redirect('/end');
+        return view('thanks');
     }
 
     /**

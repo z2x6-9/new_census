@@ -13,7 +13,7 @@ class Family_Leader_Controller extends Controller
      */
     public function index()
     {
-        return view('famile');
+        return view('family_head');
     }
 
     /**
@@ -46,49 +46,20 @@ class Family_Leader_Controller extends Controller
             "Phone_Number.max" => 'عذراً. هنالك زيادة في رقم ألهاتف',
             "Phone_Number.unique" => 'رقم ألهاتف هذا مستخدم بالفعل!',
             "Living.required" => 'ألرجاء ادخال عنوان السكن الحالي',
+            "Academic_Achievement.required" => 'ألرجاء ادخال ألتحصيل الدراسي',
         ]);
 
 
         $data = $request->all();
-        $number = $request->input('Phone_Number');
-        FamilyLeader::create($data);
-        return view('RegistrationType',compact('number'));
-    }
-
-    public function type(Request $request){
-        $num = $request->input('number');
-        return view('members',compact('num'));
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $submit1 = $request->input('submit1');
+        if($submit1){
+            $number = $request->input('Phone_Number');
+            FamilyLeader::create($data);
+            return view('other_members',compact('number'));
+        }
+        $submit2 = $request->input('submit2');
+        if($submit2){
+            FamilyLeader::create($data);
+            return redirect()->route('thanks');}
     }
 }
