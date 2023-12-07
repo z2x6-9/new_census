@@ -17,7 +17,7 @@
                 <form method="POST" action="{{ route('famile.store') }}">
                     @csrf
                     <div class="form-floating">
-                        <input type="text" name="Leader" class="form-control mt-3" id="floatingInput" placeholder="الأسم الثلاثي مع اللقب" required>
+                        <input type="text" name="Leader" value="{{ old('Leader') }}" class="form-control mt-3" id="floatingInput" placeholder="الأسم الثلاثي مع اللقب" required>
                         <label for="floatingInput">الأسم الثلاثي مع اللقب</label>
                         @error('Leader')
                         <span class="text-danger">{{ $message }}</span>
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <input type="date" name="Date_Of_Birth" class="form-control mt-3" id="floatingInput" placeholder="تاريخ الميلاد" required>
+                        <input type="date" value="{{ old('Date_Of_Birth') }}" name="Date_Of_Birth" class="form-control mt-3" id="floatingInput" placeholder="تاريخ الميلاد" required>
                         <label for="floatingInput">تاريخ الميلاد</label>
                         @error('Date_Of_Birth')
                         <span class="text-danger">{{ $message }}</span>
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" name="Living" class="form-control mt-3" id="Living" placeholder="تاريخ الميلاد" required>
+                        <input type="text" :value="old('Living')" name="Living" class="form-control mt-3" id="Living" placeholder="تاريخ الميلاد" required>
                         <label for="Living">السكن الحالي</label>
                         @error('Living')
                         <span class="text-danger">{{ $message }}</span>
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <input type="number" name="Phone_Number" inputmode="numeric" class="form-control mt-3" id="floatingInput" placeholder="رقم الهاتف" required>
+                        <input type="number" value="{{ old('Phone_Number') }}" name="Phone_Number" inputmode="numeric" class="form-control mt-3" id="floatingInput" placeholder="رقم الهاتف" required>
                         <label for="floatingInput">رقم الهاتف</label>
                         @error('Phone_Number')
                         <span class="text-danger">{{ $message }}</span>
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <input type="text" name="Academic_Achievement" class="form-control mt-3" id="floatingInput" placeholder="التحصيل الدراسي" required>
+                    <input value="{{ old('Academic_Achievement') }}" type="text" name="Academic_Achievement" class="form-control mt-3" id="floatingInput" placeholder="التحصيل الدراسي" required>
                         <label for="floatingInput">التحصيل الدراسي</label>
                         @error('Academic_Achievement')
                         <span class="text-danger">{{ $message }}</span>
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="mt-3">
-                        <select class="form-select p-3" name="Gender" id="gender" required>
+                        <select  class="form-select p-3" name="Gender" id="gender" required>
                             <option value="" selected disabled>الجنس</option>
                             <option value="ذكر">ذكر</option>
                             <option value="انثى">انثى</option>

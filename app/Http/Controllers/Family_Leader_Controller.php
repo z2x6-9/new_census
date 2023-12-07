@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FamilyLeader;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use PHPUnit\Framework\Attributes\Test;
 
 class Family_Leader_Controller extends Controller
@@ -55,7 +56,10 @@ class Family_Leader_Controller extends Controller
         if($submit1){
             $number = $request->input('Phone_Number');
             FamilyLeader::create($data);
-            return redirect('/member',compact('number'));
+            // إرفاق المتغير بمتغير Request
+            // $request->merge(['number' => $number]);
+            session(['number' => $number]);
+            return redirect('/member');
         }
         $submit2 = $request->input('submit2');
         if($submit2){

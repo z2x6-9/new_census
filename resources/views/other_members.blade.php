@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    {{ session('number') }}
     <div class="container my-5">
         <div class="row">
             <div id="dynamic-forms" class="col-md-8 offset-md-2">
@@ -72,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="number" name="number" value="{{ $number }}" style="display: none">
+                    <input type="number" name="number" value="{{ session('number') }}" style="display: none">
                 </form>
             </div>
             <div class="text-center mb-5">
@@ -83,7 +84,7 @@
     </div>
 
     <script>
-        var i = 1;
+        var i = 0;
 
         function addNewMember() {
             ++i;

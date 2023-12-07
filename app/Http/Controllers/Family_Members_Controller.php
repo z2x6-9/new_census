@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FamilyMembers;
 use App\Models\FamilyLeader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Family_Members_Controller extends Controller
 {
@@ -14,7 +15,8 @@ class Family_Members_Controller extends Controller
     public function index()
     {
         $famile = FamilyLeader::all();
-        return view('other_members', compact('famile'));
+        $num = session(['number']);
+        return view('other_members', compact('num'));
     }
 
     /**
@@ -37,14 +39,30 @@ class Family_Members_Controller extends Controller
             'Relationship' => "required|max:255",
             'Academic_Achievement' => "required|max:255",
         ]);
-        $data = $request->all();
+
+        $Name = $request->Name;
+        $Gender = $request->Gender;
+        $Date_Of_Birth = $request->Date_Of_Birth;
+        $Relationship = $request->Relationship;
+        $Academic_Achievement = $request->Academic_Achievement;
         $number = $request->input('number');
         $leader = FamilyLeader::where('phone_number', '=',$number)->first();
-        foreach($request->input as $key => $value){
         $leader_id = $leader->id;
-        $value['Leader_id'] = $leader_id;
-        FamilyMembers::create($value);
+        for ($i=0; $i < count($Name) ; $i++) {
+            $data = [
+                'Leader_id' => $leader_id,
+                'Name' => $Name[$i],
+                'Gender' => $Gender[$i],
+                'Date_Of_Birth' => $Date_Of_Birth[$i],
+                'Relationship' => $Relationship[$i],
+                'Academic_Achievement' => $Academic_Achievement[$i],
+            ];
+            DB::table('family_members')->insert($data);
         }
+        $data['Leader_id'] = $leader_id;
+        
+        // FamilyMembers::create($data);
+
         return view('thanks');
     }
 

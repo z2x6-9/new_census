@@ -39,7 +39,7 @@ class Data_Controller extends Controller
                     // تحقق مما إذا كانت البيانات متطابقة
                     if (count($duplicates) > 1) {
                         // حدد اللون الأحمر للاسم المكرر
-                        $item->color = '#e70000c7';
+                        $item->color = 'bg-warning';
                     } elseif (count($duplicates) < 1) {
                         // حدد اللون الأبيض للاسم الذي لم يتم تكراره
                         $item->color = '';

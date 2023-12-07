@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Leader');
             $table->string('Gender');
             $table->date('Date_Of_Birth');
-            $table->bigInteger('Phone_Number')->unique();
+            $table->string('Phone_Number')->unique();
             $table->string('Living');
             $table->string('Academic_Achievement');
             $table->timestamps();
