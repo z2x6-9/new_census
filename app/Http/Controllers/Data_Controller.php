@@ -128,7 +128,7 @@ class Data_Controller extends Controller
                     $familyMember->delete();
                 }
                 $familyLeader->delete();
-                return redirect()->back();
+                return redirect()->route('dashboard');
             } else {
                 return view('family_head');
             }

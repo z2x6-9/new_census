@@ -14,7 +14,7 @@
     {{ $total }}
     <div class="container mt-5">
         <div class="d-flex justify-content-end mb-3">
-            <a class="btn btn-secondary" href="login.html">تسجيل خروج</a>
+            <a class="btn btn-secondary" href="{{ route('logout') }}">تسجيل خروج</a>
         </div>
         <div class="card">
             <div class="card-body">

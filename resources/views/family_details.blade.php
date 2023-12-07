@@ -74,7 +74,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">تراجع</button>
-                    <button type="button" class="btn btn-danger">حذف</button>
+                    <a href="/user/delete/{{ $Leader->id }}"><button type="button" class="btn btn-danger">حذف</button></a>
                 </div>
             </div>
         </div>
