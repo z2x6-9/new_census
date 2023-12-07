@@ -17,7 +17,7 @@
                     @csrf
                     <div class="card-body member-info">
                         <div class="card-title">
-                            <h4 class="mb-4">الفرد الأول</h4>
+                            <h4 class="mb-4">فرد العائلة:</h4>
                         </div>
                         <div class="form-floating">
                             <input type="text" name="Name[0]" class="form-control mb-3" id="floatingInput" placeholder="الأسم الثلاثي مع اللقب" required>
@@ -75,7 +75,7 @@
                     <input type="number" name="number" value="{{ $number }}" style="display: none">
                 </form>
             </div>
-            <div class="text-center mt-4 mb-5">
+            <div class="text-center mb-5">
                 <button type="button" class="btn btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#submit">تسليم</button>
                 <button type="button" class="btn btn-primary" onclick="addNewMember()">إضافة فرد جديد</button>
             </div>
@@ -83,7 +83,7 @@
     </div>
 
     <script>
-        var i = 0;
+        var i = 1;
 
         function addNewMember() {
             ++i;
@@ -91,7 +91,7 @@
                 `
                     <div class="card-body member-info">
                         <div class="card-title">
-                            <h4 class="mb-4">الفرد الأول</h4>
+                            <h4 class="mb-4">فرد العائلة:</h4>
                         </div>
                         <div class="form-floating">
                             <input type="text" name="Name[` + i + `]" class="form-control mb-3" id="floatingInput"

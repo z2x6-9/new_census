@@ -12,7 +12,7 @@
 
 <body>
     {{ $total }}
-    <div class="container mt-5">
+    <div class="container my-5">
         <div class="d-flex justify-content-end mb-3">
             <a class="btn btn-secondary" href="{{ route('logout') }}">تسجيل خروج</a>
         </div>
@@ -49,18 +49,18 @@
                     <thead>
                         <tr>
                             <th>التسلسل</th>
-                            <th>الأسم</th>
+                            <th>أسم مسؤول الاسرة</th>
                             <th>رقم الهاتف</th>
                             <th>أتخاذ اجراء</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
-                        <tr class="btn-danger">
-                            <td>{{ $loop->index + 1  }}</td>
-                            <td>{{ $item->Leader }}</td>
-                            <td>{{ $item->phone_Number }}</td>
-                            <td>
+                        <tr>
+                            <td class="bg-warning">{{ $loop->index + 1  }}</td>
+                            <td class="bg-warning">{{ $item->Leader }}</td>
+                            <td class="bg-warning">{{ $item->phone_Number }}</td>
+                            <td class="bg-warning">
                                 <a class="btn btn-primary" href="/showfamile/{{ $item->id }}">عرض التفاصيل</a>
                             </td>
                         </tr>
@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+    <br>
 
     <footer class="bg-dark text-light text-center p-3 fixed-bottom mt-5">
         &copy; 2023 تم تطوير هذا الموقع بواسطة <a class="text-info" target="_blank" href="https://www.instagram.com/soft_4_you_dev/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==">Soft
