@@ -60,10 +60,10 @@ class Family_Members_Controller extends Controller
             DB::table('family_members')->insert($data);
         }
         $data['Leader_id'] = $leader_id;
-        
+
         // FamilyMembers::create($data);
 
-        return view('thanks');
+        return redirect()->route('thanks');
     }
 
     /**
