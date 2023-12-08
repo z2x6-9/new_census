@@ -30,6 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/store', [App\Http\Controllers\Family_Leader_Controller::class, 'store'])->name('famile.store');
     Route::get('/member', [App\Http\Controllers\Family_Members_Controller::class, 'index'])->name('members');
     Route::post('/members', [App\Http\Controllers\Family_Members_Controller::class, 'store'])->name('members.store');
-    Route::get('/end', function () {return view('thanks');})->name('thanks');
+    Route::get('/thanks', function () {return view('thanks');})->name('thanks');
 
 require __DIR__.'/auth.php';
