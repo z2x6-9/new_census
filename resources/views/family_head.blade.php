@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-floating">
-                    <input value="{{ old('Academic_Achievement') }}" type="text" name="Academic_Achievement" class="form-control mt-3" id="floatingInput" placeholder="التحصيل الدراسي" required>
+                        <input value="{{ old('Academic_Achievement') }}" type="text" name="Academic_Achievement" class="form-control mt-3" id="floatingInput" placeholder="التحصيل الدراسي" required>
                         <label for="floatingInput">التحصيل الدراسي</label>
                         @error('Academic_Achievement')
                         <span class="text-danger">{{ $message }}</span>
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="mt-3">
-                        <select  class="form-select p-3" name="Gender" id="gender" required>
+                        <select class="form-select p-3" name="Gender" id="gender" required>
                             <option value="" selected disabled>الجنس</option>
                             <option value="ذكر">ذكر</option>
                             <option value="انثى">انثى</option>
@@ -102,7 +102,17 @@
             4 You</a>, كل الحقوق محفوظة.
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+        // this code prevents the user from going to the previuos page
+        function removeMember(button) {
+            $(button).parent().remove();
+        }
+        window.history.forward();
+
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
 </body>
 
 </html>

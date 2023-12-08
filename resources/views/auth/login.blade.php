@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -26,6 +25,7 @@
             background-color: #fff;
             max-width: 330px;
             padding: 15px;
+            border-radius: 1em;
         }
 
         .form-signin .form-floating:focus-within {
@@ -47,10 +47,10 @@
 </head>
 
 <body class="text-center">
-    <main class="form-signin w-100 m-auto">
+    <main class="form-signin w-100 m-auto shadow">
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <h1 class="h3 my-4 fw-normal">الرجاء تسجيل الدخول</h1>
+            <h1 class="h3 mb-4 mt-3 fw-normal">الرجاء تسجيل الدخول</h1>
 
             <div class="form-floating">
                 <input type="text" name="username" class="form-control" id="floatingInput" placeholder="أسم المستخدم">
@@ -63,12 +63,12 @@
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
-            <div class="checkbox mb-3">
+            <div class="checkbox mb-4">
                 <label>
                     <input type="checkbox" name="remember" value="remember-me"> تذكرني
                 </label>
             </div>
-            <input type="submit" class="w-100 btn btn-lg btn-primary" value="تسجيل الدخول">
+            <input type="submit" class="w-100 btn btn-lg btn-primary mb-2" value="تسجيل الدخول">
         </form>
     </main>
 
