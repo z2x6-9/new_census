@@ -55,10 +55,12 @@
             <div class="form-floating">
                 <input type="text" name="username" class="form-control" id="floatingInput" placeholder="أسم المستخدم">
                 <label for="floatingInput">أسم المستخدم</label>
+                <x-input-error :messages="$errors->get('username')" class="mt-2" />
             </div>
             <div class="form-floating">
                 <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">كلمة المرور</label>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <div class="checkbox mb-3">

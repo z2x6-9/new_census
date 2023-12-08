@@ -36,16 +36,15 @@
                         <p class="card-text">الجنس: {{ $Leader->Gender }}</p>
                     </div>
                 </div>
-
                 <!-- Family Members Section -->
                 <div class="card mb-4">
                     <div class="card-header fw-bold">
                         <h4>بقية أفراد الأسرة</h4>
                     </div>
                     <div class="card-body">
+                        @if (count($members) > 0)
                         <!-- Family Member 1 -->
                         @foreach ($members as $member)
-
                         <div class="mb-3">
                             <h5>{{ $loop->index + 1  }}</h5>
                             <p>الأسم الثلاثي مع اللقب: {{ $member->Name }}</p>
@@ -55,6 +54,9 @@
                             <p>الجنس: {{ $member->Gender }}</p>
                         </div>
                         @endforeach
+                        @else
+                        <h4>لا يوجد</h4>
+                        @endif
                     </div>
                 </div>
             </div>
