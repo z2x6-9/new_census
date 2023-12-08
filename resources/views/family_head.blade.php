@@ -96,7 +96,6 @@
         </div>
     </div>
 
-
     <footer class="bg-dark text-light text-center p-3 fixed-bottom mt-5">
         &copy; 2023 تم تطوير هذا الموقع بواسطة <a class="text-info" target="_blank" href="https://www.instagram.com/soft_4_you_dev/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==">Soft
             4 You</a>, كل الحقوق محفوظة.
@@ -104,9 +103,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script>
         // this code prevents the user from going to the previuos page
-        function removeMember(button) {
-            $(button).parent().remove();
-        }
         window.history.forward();
 
         function noBack() {
