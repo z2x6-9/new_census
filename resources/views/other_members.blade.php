@@ -92,60 +92,39 @@
         var i = 0;
 
         function addNewMember() {
-            ++i;
-            $('.form-container').append(
-                `
-                    <div class="card-body member-info">
-                        <div class="card-title">
-                            <h4 class="mb-4">فرد العائلة:</h4>
-                        </div>
-                        <div class="form-floating">
-                            <input type="text" name="Name[` + i + `]" class="form-control mb-3" id="floatingInput"
-                                placeholder="الأسم الثلاثي مع اللقب" required>
-                            <label for="floatingInput">الأسم الثلاثي مع اللقب</label>
-                        </div>
+            var existingMembers = $('.form-container .member-info').length;
 
-                        <div class="form-floating">
-                            <input type="date" name="Date_Of_Birth[` + i + `]" class="form-control mb-3" id="floatingInput"
-                                placeholder="تاريخ الميلاد" required>
-                            <label for="floatingInput">تاريخ الميلاد</label>
-                        </div>
+            var memberInfo = $('.member-info:first').clone();
+            memberInfo.find('input, select').each(function(inputIndex, input) {
+                var currentName = $(input).attr('name');
+                var newName = currentName.replace(/\[\d+\]/, '[' + existingMembers + ']');
+                $(input).attr('name', newName);
+                $(input).val('');
+            });
 
-                        <div class="form-floating">
-                            <input type="text" name="Academic_Achievement[` + i + `]" class="form-control mb-3" id="floatingInput"
-                                placeholder="التحصيل الدراسي" required>
-                            <label for="floatingInput">التحصيل الدراسي</label>
-                        </div>
-
-                        <div class="mb-3">
-                            <select name="Relationship[` + i + `]" class="form-select p-3" id="gender" required>
-                                <option value="" selected disabled>موقعه من الأسرة</option>
-                                <option value="أخ">أخ</option>
-                                <option value="أخت">أخت</option>
-                                <option value="أبن">أبن</option>
-                                <option value="أبنة">أبنة</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <select name="Gender[` + i + `]" class="form-select p-3" id="gender" required>
-                                <option value="" selected disabled>الجنس</option>
-                                <option value="ذكر">ذكر</option>
-                                <option value="انثى">انثى</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-danger" onclick="removeMember(this)"
-                            >إزالة
-                            الفرد</button>
-                    </div>
-                `
-            );
+            memberInfo.find('button').show();
+            $('.form-container').append(memberInfo);
         }
 
-        // this code prevents the user from going to the previuos page
+
         function removeMember(button) {
-            $(button).parent().remove();
+            var parent = $(button).parent();
+            parent.remove();
+
+            var i = 0;
+            $('.form-container .member-info').each(function(index, element) {
+                var inputs = $(element).find('input, select');
+                inputs.each(function(inputIndex, input) {
+                    var currentName = $(input).attr('name');
+                    var newName = currentName.replace(/\[\d+\]/, '[' + i + ']');
+                    $(input).attr('name', newName);
+                });
+                i++;
+            });
         }
+
+
+        // This code prevents the user from going to the previuos page
         window.history.forward();
 
         function noBack() {
