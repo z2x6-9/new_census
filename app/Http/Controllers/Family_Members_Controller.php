@@ -63,7 +63,7 @@ class Family_Members_Controller extends Controller
 
         // FamilyMembers::create($data);
 
-        return redirect()->route('thanks');
+        return redirect('/thanks');
     }
 
     /**
