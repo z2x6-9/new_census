@@ -7,6 +7,12 @@
     <title>موقع التعداد</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+
+    <style>
+        .card-text{
+            font-size: large;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,12 +53,13 @@
                         @foreach ($members as $member)
 
                         <div class="mb-3">
-                            <h5>{{ $loop->index + 1  }}</h5>
-                            <p>الأسم الثلاثي مع اللقب: {{ $member->Name }}</p>
-                            <p>تاريخ الميلاد: {{ $member->Date_Of_Birth }}</p>
-                            <p>التحصيل الدراسي: {{ $member->Academic_Achievement }}</p>
-                            <p>موقعه من الأسرة: {{ $member->Relationship }}</p>
-                            <p>الجنس: {{ $member->Gender }}</p>
+                            <h5 class="mb-3">الفرد {{ $loop->index + 1  }}</h5>
+                            <p class="card-text">الأسم الثلاثي مع اللقب: {{ $member->Name }}</p>
+                            <p class="card-text">تاريخ الميلاد: {{ $member->Date_Of_Birth }}</p>
+                            <p class="card-text">التحصيل الدراسي: {{ $member->Academic_Achievement }}</p>
+                            <p class="card-text">موقعه من الأسرة: {{ $member->Relationship }}</p>
+                            <p class="card-text">الجنس: {{ $member->Gender }}</p>
+                            <hr>
                         </div>
                         @endforeach
                     </div>
@@ -86,7 +93,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 
 </html>
