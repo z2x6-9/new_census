@@ -59,7 +59,7 @@
                         <tr>
                             <td class="{{ $item->color }}">{{ $loop->index + 1  }}</td>
                             <td class="{{ $item->color }}">{{ $item->Leader }}</td>
-                            <td class="{{ $item->color }}">{{ $item->phone_Number }}</td>
+                            <td class="{{ $item->color }}">{{ $item->Phone_Number }}</td>
                             <td class="{{ $item->color }}">
                                 <a class="btn btn-primary" href="/showfamile/{{ $item->id }}">عرض التفاصيل</a>
                             </td>
